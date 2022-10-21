@@ -1,8 +1,18 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using AutoCrLfTrueWeb.Data;
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// ==(B)========== [jasper] 註冊 DbContext Service ===============
+// 參考 Visual Studio 2022 產出的範例程式
+var connectionString = builder.Configuration.GetConnectionString("SampleContext");
+builder.Services.AddDbContext<DatabaseContext>(options =>
+                options.UseSqlServer(connectionString));
+// ==(E)========== [jasper] 註冊 DbContext Service ===============
+
+//
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
