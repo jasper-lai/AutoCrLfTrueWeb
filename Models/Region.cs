@@ -5,6 +5,6 @@ namespace AutoCrLfTrueWeb.Models
         public int  Id  { get; set; }
         public string Name { get; set; } = string.Empty;
 
-        public string NameEng { get; set; } = strring.Empty;
+        public string NameEng { get; set; } = string.Empty;
     }
 }
